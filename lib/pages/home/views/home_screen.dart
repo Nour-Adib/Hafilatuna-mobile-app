@@ -2,6 +2,7 @@ import 'package:card_stack_widget/card_stack_widget.dart';
 import 'package:card_stack_widget/widget/card_stack_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hafilatuna/widgets/top_bar.dart';
 
 import '../home_controller.dart';
 import 'ticket_view.dart';
@@ -14,14 +15,17 @@ class HomeScreen extends StatelessWidget {
     final HomeScreenController c = Get.put(HomeScreenController());
 
     return Scaffold(
+      appBar: const TopBar(
+        pageTile: 'Home',
+      ),
       body: Center(
         child: SizedBox(
-          height: Get.height,
+          width: Get.width,
           child: CardStackWidget(
             opacityChangeOnDrag: true,
             swipeOrientation: CardOrientation.both,
             cardDismissOrientation: CardOrientation.both,
-            positionFactor: 7,
+            positionFactor: 5,
             scaleFactor: 1,
             alignment: Alignment.center,
             reverseOrder: true,

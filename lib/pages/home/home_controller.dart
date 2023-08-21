@@ -7,7 +7,6 @@ import 'views/ticket_view.dart';
 
 class HomeScreenController extends GetxController {
   final cardHeight = Get.height * 0.222;
-  final cardWidth = Get.width * 0.340;
   List<Ticket> dataList = [
     Ticket(
       studentName: 'Ahmed',

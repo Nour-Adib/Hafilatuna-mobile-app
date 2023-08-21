@@ -14,10 +14,12 @@ class TicketView extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(10),
       margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-      height: c.cardHeight,
-      width: c.cardWidth,
+      height: Get.height * 0.2,
+      width: Get.width * 0.8,
       child: Column(
-        children: [],
+        children: [
+          Text(ticket.studentName ?? ""),
+        ],
       ),
     );
   }
