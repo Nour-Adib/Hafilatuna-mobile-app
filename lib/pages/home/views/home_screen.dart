@@ -18,38 +18,26 @@ class HomeScreen extends StatelessWidget {
       appBar: const TopBar(
         pageTile: 'Home',
       ),
-      body: Center(
-        child: SizedBox(
-          width: Get.width,
-          child: CardStackWidget(
-            opacityChangeOnDrag: true,
-            swipeOrientation: CardOrientation.both,
-            cardDismissOrientation: CardOrientation.both,
-            positionFactor: 5,
-            scaleFactor: 1,
-            alignment: Alignment.center,
-            reverseOrder: true,
-            animateCardScale: true,
-            dismissedCardDuration: const Duration(milliseconds: 5000),
-            cardList: c.getCardsList(),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 50.0),
+        child: Center(
+          child: SizedBox(
+            width: Get.width,
+            child: CardStackWidget(
+              opacityChangeOnDrag: true,
+              swipeOrientation: CardOrientation.both,
+              cardDismissOrientation: CardOrientation.both,
+              positionFactor: 5,
+              scaleFactor: 1,
+              alignment: Alignment.center,
+              reverseOrder: true,
+              animateCardScale: true,
+              dismissedCardDuration: const Duration(milliseconds: 5000),
+              cardList: c.getCardsList(),
+            ),
           ),
         ),
       ),
     );
   }
 }
-/**
- * CarouselSlider(
-            options: CarouselOptions(
-              scrollDirection: Axis.vertical,
-              enlargeCenterPage: true,
-              viewportFraction: 0.5,
-              enableInfiniteScroll: false,
-            ),
-            items: c.dataList.map((ticket) {
-              return TicketView(
-                ticket: ticket,
-              );
-            }).toList(),
-          ),
- */
