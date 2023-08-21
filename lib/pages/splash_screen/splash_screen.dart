@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import 'splash_screen_controller.dart';
@@ -10,10 +11,12 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final SplashScreenController c = Get.put(SplashScreenController());
 
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: Center(
-          child: Text('Splash Screen'),
+          child: Center(
+            child: Image.asset("assets/images/logo.png"),
+          ),
         ),
       ),
     );

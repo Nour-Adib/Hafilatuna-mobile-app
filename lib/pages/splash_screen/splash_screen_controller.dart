@@ -26,6 +26,6 @@ class SplashScreenController extends GetxController {
     } */
 
     //Navigate to the registration page and do not allow the user to return to the splash screen
-    /* Get.offNamed('/registrationOrLogin'); */
+    Get.offNamed('/home');
   }
 }
