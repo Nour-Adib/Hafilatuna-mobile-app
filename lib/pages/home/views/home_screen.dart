@@ -1,5 +1,4 @@
 import 'package:card_stack_widget/card_stack_widget.dart';
-import 'package:card_stack_widget/widget/card_stack_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hafilatuna/widgets/navbar/navbar.dart';
@@ -7,7 +6,6 @@ import 'package:hafilatuna/widgets/navbar/navbar_controller.dart';
 import 'package:hafilatuna/widgets/top_bar.dart';
 
 import '../home_controller.dart';
-import 'ticket_view.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
