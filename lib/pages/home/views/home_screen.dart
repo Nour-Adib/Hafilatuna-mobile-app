@@ -2,6 +2,8 @@ import 'package:card_stack_widget/card_stack_widget.dart';
 import 'package:card_stack_widget/widget/card_stack_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hafilatuna/widgets/navbar/navbar.dart';
+import 'package:hafilatuna/widgets/navbar/navbar_controller.dart';
 import 'package:hafilatuna/widgets/top_bar.dart';
 
 import '../home_controller.dart';
@@ -13,11 +15,15 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final HomeScreenController c = Get.put(HomeScreenController());
+    final NavbarController navbarController = Get.put(NavbarController());
 
     return Scaffold(
       appBar: const TopBar(
         pageTile: 'Home',
       ),
+      bottomNavigationBar: Obx(() => Navbar(
+          currentIndex: navbarController.selectedIndex.value,
+          onItemTap: navbarController.onItemTap)),
       body: Padding(
         padding: const EdgeInsets.only(top: 50.0),
         child: Center(
