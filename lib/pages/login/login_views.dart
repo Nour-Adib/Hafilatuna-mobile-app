@@ -28,6 +28,7 @@ class LoginScreen extends StatelessWidget {
             SizedBox(
                 width: Get.width * 0.5,
                 child: TextFormField(
+                  controller: c.emailTextFieldController,
                   decoration: const InputDecoration(
                       labelText: ("Email"), hintText: ("example@email.com")),
                   autofillHints: const [AutofillHints.email],
@@ -35,6 +36,8 @@ class LoginScreen extends StatelessWidget {
             SizedBox(
                 width: Get.width * 0.5,
                 child: TextFormField(
+                  obscureText: true,
+                  controller: c.passwordTextFieldController,
                   autofillHints: const [AutofillHints.password],
                   decoration: const InputDecoration(
                     labelText: ("Password"),

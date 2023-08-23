@@ -4,17 +4,23 @@ part 'activity.model.g.dart';
 
 @JsonSerializable()
 class Activity {
-  @JsonKey(name: 'activityType')
-  String? activityType;
-  @JsonKey(name: 'activityTime')
-  String? activityTime;
-  @JsonKey(name: 'activityDate')
-  String? activityDate;
+  @JsonKey(name: 'createdAt')
+  String? createdAt;
+  @JsonKey(name: 'updatedAt')
+  String? updatedAt;
+  @JsonKey(name: 'id')
+  String? id;
+  @JsonKey(name: 'action')
+  String? action;
+  @JsonKey(name: 'timestamp')
+  String? timestamp;
 
   Activity({
-    this.activityType,
-    this.activityTime,
-    this.activityDate,
+    this.createdAt,
+    this.updatedAt,
+    this.id,
+    this.action,
+    this.timestamp,
   });
 
   factory Activity.fromJson(Map<String, dynamic> json) =>

@@ -7,13 +7,17 @@ part of 'activity.model.dart';
 // **************************************************************************
 
 Activity _$ActivityFromJson(Map<String, dynamic> json) => Activity(
-      activityType: json['activityType'] as String?,
-      activityTime: json['activityTime'] as String?,
-      activityDate: json['activityDate'] as String?,
+      createdAt: json['createdAt'] as String?,
+      updatedAt: json['updatedAt'] as String?,
+      id: json['id'] as String?,
+      action: json['action'] as String?,
+      timestamp: json['timestamp'] as String?,
     );
 
 Map<String, dynamic> _$ActivityToJson(Activity instance) => <String, dynamic>{
-      'activityType': instance.activityType,
-      'activityTime': instance.activityTime,
-      'activityDate': instance.activityDate,
+      'createdAt': instance.createdAt,
+      'updatedAt': instance.updatedAt,
+      'id': instance.id,
+      'action': instance.action,
+      'timestamp': instance.timestamp,
     };

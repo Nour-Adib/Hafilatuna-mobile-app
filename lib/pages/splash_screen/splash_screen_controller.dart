@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:hafilatuna/utility/shared_preferences.dart';
 
 class SplashScreenController extends GetxController {
   //Get the width of the screen
@@ -20,10 +21,10 @@ class SplashScreenController extends GetxController {
       return;
     } */
 
-    /* if (await SharedPreferencesService.getIsLoggedIn()) {
+     if (await SharedPreferencesService.getIsLoggedIn()) {
       Get.offNamed('/home');
       return;
-    } */
+    }
 
     //Navigate to the registration page and do not allow the user to return to the splash screen
     Get.offNamed('/onboarding');

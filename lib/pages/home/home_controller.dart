@@ -1,36 +1,57 @@
 import 'package:card_stack_widget/card_stack_widget.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hafilatuna/models/ticket.model.dart';
 import 'package:hafilatuna/pages/ticket_details/views/ticket_details_view.dart';
+import 'package:hafilatuna/services/tickets/tickets.service.dart';
+import 'package:hafilatuna/utility/logger.dart';
+import 'package:hafilatuna/utility/shared_preferences.dart';
 
 import 'views/ticket_view.dart';
 
 class HomeScreenController extends GetxController {
   final cardHeight = Get.height * 0.222;
-  List<Ticket> dataList = [
-    Ticket(
-      studentName: 'Ahmed',
-      schoolName: 'Al-Azhar',
-      busNumber: '1',
-      seatNumber: '1',
-      currentStatus: 'In',
-    ),
-    Ticket(
-      studentName: 'Mohamed',
-      schoolName: 'Al-Azhar',
-      busNumber: '1',
-      seatNumber: '2',
-      currentStatus: 'In',
-    ),
-    Ticket(
-      studentName: 'Ali',
-      schoolName: 'Al-Azhar',
-      busNumber: '1',
-      seatNumber: '3',
-      currentStatus: 'In',
-    ),
-  ];
+  List<Ticket> dataList = [];
+  var isLoading = false.obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    getTickets();
+  }
+
+  getTickets() async {
+    toggleLoading();
+    final dio = Dio();
+    final ticketsService = TicketsService(dio);
+
+    final accessToken =
+        await SharedPreferencesService.getFromShared('accessToken');
+
+    LoggerService().logError(accessToken);
+
+    await ticketsService.getTickets('Bearer $accessToken').then((response) {
+      dataList = response;
+      toggleLoading();
+    });
+  }
+
+  getTicketById(String id) async {
+    final dio = Dio();
+    final ticketsService = TicketsService(dio);
+
+    final accessToken =
+        await SharedPreferencesService.getFromShared('accessToken');
+
+    LoggerService().logError(accessToken);
+
+    await ticketsService
+        .getTicketById('Bearer $accessToken', id)
+        .then((response) {
+      return response;
+    });
+  }
 
   getCardsList() {
     return dataList.map((ticket) {
@@ -41,7 +62,7 @@ class HomeScreenController extends GetxController {
         radius: const Radius.circular(15),
         child: InkWell(
           onTap: () {
-            Get.to(() => TicketDetailsView(ticket: ticket),
+            Get.to(() => TicketDetailsView(ticketId: ticket.id ?? ''),
                 transition: Transition.rightToLeftWithFade);
           },
           child: TicketView(
@@ -50,5 +71,9 @@ class HomeScreenController extends GetxController {
         ),
       );
     }).toList();
+  }
+
+  toggleLoading() {
+    isLoading.value = !isLoading.value;
   }
 }

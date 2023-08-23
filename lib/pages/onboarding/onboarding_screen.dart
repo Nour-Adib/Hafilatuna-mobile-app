@@ -11,6 +11,7 @@ class OnboardingScreen extends StatelessWidget {
     final OnboardingController c = Get.put(OnboardingController());
 
     return Scaffold(
+      backgroundColor: const Color(0xffffffff),
       appBar: const TopBar(
         pageTile: "",
       ),

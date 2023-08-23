@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hafilatuna/models/enums/accountType.enum.dart';
 import 'package:hafilatuna/pages/register/register_controller.dart';
 import 'package:hafilatuna/widgets/top_bar.dart';
 
@@ -28,6 +29,7 @@ class RegisterScreen extends StatelessWidget {
                     child: SizedBox(
                         width: Get.width * 0.75,
                         child: TextFormField(
+                          controller: c.firstNameTextFieldController,
                           decoration: const InputDecoration(
                               labelText: 'First Name',
                               labelStyle: TextStyle(
@@ -45,6 +47,7 @@ class RegisterScreen extends StatelessWidget {
                     child: SizedBox(
                         width: Get.width * 0.75,
                         child: TextFormField(
+                          controller: c.lastNameTextFieldController,
                           decoration: const InputDecoration(
                               labelText: 'Last Name',
                               labelStyle: TextStyle(
@@ -62,6 +65,8 @@ class RegisterScreen extends StatelessWidget {
                     child: SizedBox(
                         width: Get.width * 0.75,
                         child: TextFormField(
+                          controller: c.emiratesIdTextFieldController,
+                          onChanged: (value) => c.checkAge(value),
                           decoration: const InputDecoration(
                               labelText: 'Emirates ID',
                               labelStyle: TextStyle(
@@ -79,6 +84,7 @@ class RegisterScreen extends StatelessWidget {
                     child: SizedBox(
                         width: Get.width * 0.75,
                         child: TextFormField(
+                          controller: c.phoneNumberTextFieldController,
                           decoration: const InputDecoration(
                               labelText: 'Mobile Number',
                               labelStyle: TextStyle(
@@ -96,6 +102,7 @@ class RegisterScreen extends StatelessWidget {
                     child: SizedBox(
                         width: Get.width * 0.75,
                         child: TextFormField(
+                          controller: c.emailTextFieldController,
                           decoration: const InputDecoration(
                               labelText: 'Email',
                               labelStyle: TextStyle(
@@ -113,6 +120,7 @@ class RegisterScreen extends StatelessWidget {
                     child: SizedBox(
                         width: Get.width * 0.75,
                         child: TextFormField(
+                          controller: c.usernameTextFieldController,
                           decoration: const InputDecoration(
                               labelText: 'Username',
                               labelStyle: TextStyle(
@@ -130,6 +138,8 @@ class RegisterScreen extends StatelessWidget {
                     child: SizedBox(
                         width: Get.width * 0.75,
                         child: TextFormField(
+                          controller: c.passwordTextFieldController,
+                          obscureText: true,
                           decoration: const InputDecoration(
                               labelText: 'Password',
                               labelStyle: TextStyle(
@@ -147,6 +157,8 @@ class RegisterScreen extends StatelessWidget {
                     child: SizedBox(
                         width: Get.width * 0.75,
                         child: TextFormField(
+                          controller: c.confirmPasswordTextFieldController,
+                          obscureText: true,
                           decoration: const InputDecoration(
                               labelText: 'Confirm Password',
                               labelStyle: TextStyle(
@@ -158,6 +170,29 @@ class RegisterScreen extends StatelessWidget {
                               hintText: ("Re-enter your password")),
                           autofillHints: const [AutofillHints.email],
                         )),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 35),
+                    child: DropdownMenu<AccountType>(
+                      dropdownMenuEntries: c.accountTypeMenuItems,
+                      initialSelection: c.accountType.value,
+                      label: const Text(
+                        'Account Type',
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: 18,
+                          color: Color(0xFF333333),
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      onSelected: c.dropdownDisabled.value == true
+                          ? null
+                          : (AccountType? value) {
+                              value != null
+                                  ? c.accountType.value = value
+                                  : c.accountType.value = AccountType.Standalone;
+                            },
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 35),
@@ -179,6 +214,9 @@ class RegisterScreen extends StatelessWidget {
                             ),
                           )),
                     ),
+                  ),
+                  SizedBox(
+                    height: Get.height * 0.05,
                   )
                 ],
               ),

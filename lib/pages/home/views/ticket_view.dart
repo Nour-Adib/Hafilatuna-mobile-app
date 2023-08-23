@@ -24,7 +24,7 @@ class TicketView extends StatelessWidget {
             height: Get.height * 0.2,
             width: Get.width * 0.8,
             child: Text(
-              ticket.studentName ?? "",
+              ('${ticket.user!.firstName!} ${ticket.user!.lastName!}'),
               style: const TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.w300,
