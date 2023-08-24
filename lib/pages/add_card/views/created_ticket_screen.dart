@@ -107,7 +107,7 @@ class CreatedTicketScreen extends StatelessWidget {
                                 Text(
                                   ticket.school?.schoolName ?? "",
                                   style: const TextStyle(
-                                    fontSize: 20,
+                                    fontSize: 15,
                                     fontWeight: FontWeight.normal,
                                     fontFamily: "Inter",
                                   ),
@@ -125,20 +125,6 @@ class CreatedTicketScreen extends StatelessWidget {
                                   "assets/images/Dubai-Cityscape-Silhouette.png",
                                   width: Get.width * 2,
                                   color: const Color(0xFFe6d57f),
-                                ),
-                              ),
-                            ),
-                          ),
-                          ClipRect(
-                            child: Transform.scale(
-                              scale: 1.5,
-                              child: Transform.rotate(
-                                angle: 90,
-                                child: Image.asset(
-                                  "assets/images/wavePattern.png",
-                                  color: Colors.white,
-                                  height: Get.height,
-                                  width: Get.width,
                                 ),
                               ),
                             ),

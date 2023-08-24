@@ -6,4 +6,5 @@ class Repo {
   static const String getTicketByIdPath = "/ticket";
   static const String getIsEnRoutePath = "/ticket/is-en-route";
   static const String addTicketPath = "/ticket/create";
+  static const String getProfile = "/user/profile";
 }
