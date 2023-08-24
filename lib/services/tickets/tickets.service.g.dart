@@ -3,6 +3,29 @@
 part of 'tickets.service.dart';
 
 // **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+CreateTicketRequest _$CreateTicketRequestFromJson(Map<String, dynamic> json) =>
+    CreateTicketRequest(
+      dropOffAddress: json['dropOffAddress'] as String?,
+      lon: json['lon'] as String?,
+      lat: json['lat'] as String?,
+      dropOffTime: json['dropOffTime'] as String?,
+      seatNumber: json['seatNumber'] as int?,
+    );
+
+Map<String, dynamic> _$CreateTicketRequestToJson(
+        CreateTicketRequest instance) =>
+    <String, dynamic>{
+      'dropOffAddress': instance.dropOffAddress,
+      'lon': instance.lon,
+      'lat': instance.lat,
+      'dropOffTime': instance.dropOffTime,
+      'seatNumber': instance.seatNumber,
+    };
+
+// **************************************************************************
 // RetrofitGenerator
 // **************************************************************************
 
@@ -65,6 +88,34 @@ class _TicketsService implements TicketsService {
             .compose(
               _dio.options,
               '/ticket/${id}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = Ticket.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<Ticket> addTicket(
+    String token,
+    CreateTicketRequest ticket,
+  ) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Authorization': token};
+    _headers.removeWhere((k, v) => v == null);
+    final _data = <String, dynamic>{};
+    _data.addAll(ticket.toJson());
+    final _result =
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<Ticket>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/ticket/create',
               queryParameters: queryParameters,
               data: _data,
             )
