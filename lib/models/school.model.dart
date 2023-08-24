@@ -9,9 +9,9 @@ class School {
   @JsonKey(name: 'schoolName')
   String? schoolName;
   @JsonKey(name: 'longitude')
-  int? longitude;
+  String? longitude;
   @JsonKey(name: 'latitude')
-  int? latitude;
+  String? latitude;
   @JsonKey(name: 'clusterNumber')
   int? clusterNumber;
 

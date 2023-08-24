@@ -9,8 +9,8 @@ part of 'school.model.dart';
 School _$SchoolFromJson(Map<String, dynamic> json) => School(
       id: json['id'] as String?,
       schoolName: json['schoolName'] as String?,
-      longitude: json['longitude'] as int?,
-      latitude: json['latitude'] as int?,
+      longitude: json['longitude'] as String?,
+      latitude: json['latitude'] as String?,
       clusterNumber: json['clusterNumber'] as int?,
     );
 

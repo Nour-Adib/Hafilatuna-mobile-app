@@ -4,4 +4,5 @@ class Repo {
    static const String registerPath = "/auth/signup";
    static const String getTicketPath = "/ticket/tickets";
    static const String getTicketByIdPath = "/ticket";
+   static const String getIsEnRoutePath = "/ticket/is-en-route";
 }

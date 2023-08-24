@@ -5,7 +5,9 @@ import 'package:get/get.dart';
 import 'package:hafilatuna/models/ticket.model.dart';
 import 'package:hafilatuna/pages/ticket_details/views/ticket_details_view.dart';
 import 'package:hafilatuna/services/tickets/tickets.service.dart';
+import 'package:hafilatuna/utility/error_handler.dart';
 import 'package:hafilatuna/utility/logger.dart';
+import 'package:hafilatuna/utility/logout.dart';
 import 'package:hafilatuna/utility/shared_preferences.dart';
 
 import 'views/ticket_view.dart';
@@ -29,10 +31,20 @@ class HomeScreenController extends GetxController {
     final accessToken =
         await SharedPreferencesService.getFromShared('accessToken');
 
-    LoggerService().logError(accessToken);
+    if (accessToken == '') {
+      LogoutService.logout();
+    }
 
     await ticketsService.getTickets('Bearer $accessToken').then((response) {
       dataList = response;
+      toggleLoading();
+    }).catchError((error) {
+      LoggerService().logError(error.toString());
+      if (error.response.statusCode == 401) {
+        LogoutService.logout();
+      } else {
+        ErrorHandlerService.errorHandler(error);
+      }
       toggleLoading();
     });
   }

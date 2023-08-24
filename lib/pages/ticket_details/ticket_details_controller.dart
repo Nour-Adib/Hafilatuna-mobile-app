@@ -7,9 +7,9 @@ import 'package:hafilatuna/utility/logger.dart';
 import 'package:hafilatuna/utility/shared_preferences.dart';
 
 class TicketDetailsController extends GetxController {
-  late final Ticket ticket;
-  late List<Activity> activities;
-  late String currentStatus;
+  Ticket? ticket;
+  List<Activity> activities = [];
+  String currentStatus = '';
   var isLoading = false.obs;
 
   getTicketById(String id) async {
@@ -35,6 +35,9 @@ class TicketDetailsController extends GetxController {
       checkCount();
       toggleLoading();
     });
+  }
+
+  trackingButtonPressed() {
   }
 
   dateAndTime(String dateTime) {
