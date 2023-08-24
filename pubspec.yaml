@@ -29,6 +29,7 @@ dependencies:
   google_maps_flutter: ^2.4.0
   dio: ^5.3.2
   book_my_seat: ^1.0.1
+  flutter_polyline_points: ^2.0.0
 
 dev_dependencies:
   flutter_test:

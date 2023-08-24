@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:hafilatuna/models/activity.model.dart';
 import 'package:hafilatuna/models/ticket.model.dart';
+import 'package:hafilatuna/pages/maps/maps_screen.dart';
 import 'package:hafilatuna/services/tickets/tickets.service.dart';
 import 'package:hafilatuna/utility/logger.dart';
 import 'package:hafilatuna/utility/shared_preferences.dart';
@@ -38,6 +39,10 @@ class TicketDetailsController extends GetxController {
   }
 
   trackingButtonPressed() {
+    if (currentStatus == 'In bus') {
+      Get.to(() => MapScreen(ticketId: ticket?.id ?? ''),
+          transition: Transition.rightToLeftWithFade);
+    }
   }
 
   dateAndTime(String dateTime) {

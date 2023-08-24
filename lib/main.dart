@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hafilatuna/pages/home/views/home_screen.dart';
+import 'package:hafilatuna/pages/leaderboards/leaderboard.dart';
 import 'package:hafilatuna/pages/login/login_views.dart';
-import 'package:hafilatuna/pages/maps/maps_screen.dart';
 import 'package:hafilatuna/pages/onboarding/onboarding_screen.dart';
 import 'package:hafilatuna/pages/profile/profile_screen.dart';
 import 'package:hafilatuna/pages/register/register_screen.dart';
@@ -24,10 +24,6 @@ void main() {
           page: () => const HomeScreen(),
         ),
         GetPage(
-          name: '/maps',
-          page: () => const MapScreen(),
-        ),
-        GetPage(
           name: '/profile',
           page: () => const ProfileScreen(),
         ),
@@ -42,6 +38,10 @@ void main() {
         GetPage(
           name: '/login',
           page: () => const LoginScreen(),
+        ),
+        GetPage(
+          name: '/leaderboard',
+          page: () => const LeaderboardScreen(),
         ),
       ],
     ),

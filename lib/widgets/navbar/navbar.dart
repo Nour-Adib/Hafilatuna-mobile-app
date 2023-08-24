@@ -39,8 +39,8 @@ class Navbar extends StatelessWidget {
             color: Colors.black,
             tabs: const [
               GButton(
-                icon: CupertinoIcons.map,
-                text: 'Map',
+                icon: CupertinoIcons.chart_bar_circle,
+                text: 'Leaderboard',
               ),
               GButton(
                 icon: CupertinoIcons.home,
