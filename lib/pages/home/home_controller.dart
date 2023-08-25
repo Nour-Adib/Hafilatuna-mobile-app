@@ -20,7 +20,6 @@ class HomeScreenController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    getTickets();
   }
 
   getTickets() async {

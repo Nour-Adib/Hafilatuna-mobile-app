@@ -17,6 +17,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final HomeScreenController c = Get.put(HomeScreenController());
     final NavbarController navbarController = Get.put(NavbarController());
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      c.getTickets();
+    });
 
     return Scaffold(
       appBar: const TopBar(

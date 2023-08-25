@@ -67,10 +67,10 @@ class TicketDetailsController extends GetxController {
   }
 
   setStatus(int count) {
-    if (count == 0 || count == 4) {
-      currentStatus = 'At Home';
-    } else if (count == 1 || count == 3) {
+    if (activities[0].action == 'Pickup') {
       currentStatus = 'In bus';
+    } else if (count == 0 || count == 4) {
+      currentStatus = 'At Home';
     } else if (count == 2) {
       currentStatus = 'At School';
     } else {
