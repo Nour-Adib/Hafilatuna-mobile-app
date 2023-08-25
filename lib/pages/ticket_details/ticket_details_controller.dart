@@ -39,7 +39,7 @@ class TicketDetailsController extends GetxController {
   }
 
   trackingButtonPressed() {
-    if (currentStatus == 'In bus') {
+    if (activities[0].action == 'Pickup') {
       Get.to(() => MapScreen(ticketId: ticket?.id ?? ''),
           transition: Transition.rightToLeftWithFade);
     }

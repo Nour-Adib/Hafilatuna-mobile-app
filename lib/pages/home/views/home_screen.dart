@@ -1,6 +1,7 @@
 import 'package:card_stack_widget/card_stack_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hafilatuna/utility/logout.dart';
 import 'package:hafilatuna/widgets/loading_indicator.dart';
 import 'package:hafilatuna/widgets/navbar/navbar.dart';
 import 'package:hafilatuna/widgets/navbar/navbar_controller.dart';

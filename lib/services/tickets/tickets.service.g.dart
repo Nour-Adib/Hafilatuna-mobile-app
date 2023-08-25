@@ -36,7 +36,7 @@ class _TicketsService implements TicketsService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'http://10.6.138.255:3000';
+    baseUrl ??= 'http://192.168.0.164:3000';
   }
 
   final Dio _dio;

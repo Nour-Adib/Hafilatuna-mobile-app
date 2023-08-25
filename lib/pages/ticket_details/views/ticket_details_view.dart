@@ -315,7 +315,7 @@ class TicketDetailsView extends StatelessWidget {
                             ),
                           ),
                           child: Icon(
-                            (c.currentStatus == 'In bus'
+                            (c.activities[0].action == 'Pickup'
                                 ? Icons.location_on
                                 : Icons.location_off),
                             size: 30,
