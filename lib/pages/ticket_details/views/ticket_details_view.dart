@@ -315,7 +315,8 @@ class TicketDetailsView extends StatelessWidget {
                             ),
                           ),
                           child: Icon(
-                            (c.activities[0].action == 'Pickup'
+                            (c.activities.isNotEmpty &&
+                                    c.activities[0].action == 'Pickup'
                                 ? Icons.location_on
                                 : Icons.location_off),
                             size: 30,
